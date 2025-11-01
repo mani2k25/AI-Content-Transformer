@@ -48,6 +48,9 @@ function App() {
   const [error, setError] = useState('');
   const [copied, setCopied] = useState(false);
 
+  // API URL - uses environment variable in production, localhost in development
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+
   const handleTransform = async () => {
     if (!inputText.trim()) {
       setError('Please enter some text to transform');
@@ -59,7 +62,7 @@ function App() {
     setOutputText('');
 
     try {
-      const response = await fetch('/api/transform', {
+      const response = await fetch(`${API_URL}/api/transform`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
