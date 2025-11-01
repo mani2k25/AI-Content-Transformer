@@ -56,6 +56,21 @@ interface TransformRequest {
   transformType: 'summarize-ceo' | 'expand-job-description' | 'formal-tone';
 }
 
+// Root endpoint - Welcome message
+app.get('/', (req: Request, res: Response) => {
+  res.json({
+    name: 'AI Content Transformer API',
+    version: '1.0.0',
+    status: 'running',
+    model: 'Google Gemini Pro',
+    endpoints: {
+      health: '/api/health',
+      transform: '/api/transform (POST)'
+    },
+    documentation: 'https://github.com/yourusername/AI-Content-Transformer'
+  });
+});
+
 // Health check endpoint
 app.get('/api/health', (req: Request, res: Response) => {
   res.json({ 
