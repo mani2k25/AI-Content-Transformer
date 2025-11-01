@@ -1,0 +1,9 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "env": {
+    "VITE_API_URL": "https://ai-content-transform-git-b0781c-manish-kumars-projects-c42fb5fc.vercel.app"
+  }
+}
+
